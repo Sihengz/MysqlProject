@@ -28,12 +28,18 @@ def execute_query(query):
     return master_list
 
 
-student_id = input("Enter student id: ")
-table = execute_query(f"CALL GetCourses({student_id})")
-for i in range(1, len(table[0])):
-    print(f"Period: {table[2][i]}")
-    print(f"Course: {table[0][i]}")
-    print(f"Room: {table[1][i]}")
-    print(f"Teacher: {table[3][i]}")
-    print()
+print("1: Teacher")
+print("2: Student")
+TeacherOrStudent = input("who are u?")
 
+if TeacherOrStudent == 1:
+    student_id = input("Enter student id: ")
+    table = execute_query(f"CALL GetCourses({student_id})")
+    for i in range(1, len(table[0])):
+        print(f"Period: {table[2][i]}")
+        print(f"Course: {table[0][i]}")
+        print(f"Room: {table[1][i]}")
+        print(f"Teacher: {table[3][i]}")
+        print()
+elif TeacherOrStudent == 2:
+    print("TODO")
